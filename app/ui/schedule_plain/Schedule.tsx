@@ -10,7 +10,7 @@ interface Props {
 
 const Schedule = ({ game, team }: Props) => {
   return (
-    <div className="w-full h-full gap-8 py-4 flex flex-col justify-center items-center bg-white dark:bg-neutral-950">
+    <div className="w-full h-full gap-8 py-4 flex flex-col justify-center items-center bg-white">
       <Countdown game={game} team={team} />
       <Record team={team} />
       <GameList team={team} />
