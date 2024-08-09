@@ -30,6 +30,7 @@ const config: Config = {
         texas: "#c15d26",
         "texas-a&m": "#6a1e2d",
         vanderbilt: "#cfae70",
+        sec: "#002d74",
       },
     },
   },
