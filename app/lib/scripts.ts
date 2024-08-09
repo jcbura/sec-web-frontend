@@ -2,6 +2,31 @@ export const getDecodedName = (team: string) => {
   return team.replace(/\s+/g, "_").toLowerCase();
 };
 
+export const getTimeUntill = (date: string, time: string) => {
+  const currentDate = new Date();
+  const targetDateTime = new Date(`${date}T${time}`);
+
+  const differenceInMillis = targetDateTime.getTime() - currentDate.getTime();
+
+  const millisecondsPerSecond = 1000;
+  const millisecondsPerMinute = millisecondsPerSecond * 60;
+  const millisecondsPerHour = millisecondsPerMinute * 60;
+  const millisecondsPerDay = millisecondsPerHour * 24;
+
+  const days = Math.floor(differenceInMillis / millisecondsPerDay);
+  const hours = Math.floor(
+    (differenceInMillis % millisecondsPerDay) / millisecondsPerHour
+  );
+  const minutes = Math.floor(
+    (differenceInMillis % millisecondsPerHour) / millisecondsPerMinute
+  );
+  const seconds = Math.floor(
+    (differenceInMillis % millisecondsPerMinute) / millisecondsPerSecond
+  );
+
+  return { days, hours, minutes, seconds };
+};
+
 export const formatDate = (
   sqlDate: string,
   length: "short" | "long" = "short"

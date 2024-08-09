@@ -16,9 +16,7 @@ const GameCard = ({ game, team }: Props) => {
   const opponent = homeGame ? game.away_team : game.home_team;
 
   const teamIcon = getDecodedName(team.name);
-  const opponentIcon = getDecodedName(
-    homeGame ? game.away_team : game.home_team
-  );
+  const opponentIcon = getDecodedName(opponent);
 
   const clsxObj = {
     "bg-alabama": team.name === "Alabama",
@@ -63,24 +61,22 @@ const GameCard = ({ game, team }: Props) => {
           className={clsx(
             "w-full h-full p-4 gap-4 flex flex-col lg:flex-row justify-center lg:justiy-start items-center border border-t-0 lg:border-t border-b-0 border-l lg:border-l-0 border-r",
             {
-              "border-neutral-500":
-                team.name === "Alabama" ||
-                team.name === "Arkansas" ||
-                team.name === "Auburn" ||
-                team.name === "Florida" ||
-                team.name === "Georgia" ||
-                team.name === "Kentucky" ||
-                team.name === "LSU" ||
-                team.name === "Mississippi State" ||
-                team.name === "Oklahoma" ||
-                team.name === "Ole Miss" ||
-                team.name === "South Carolina" ||
-                team.name === "Texas A&M",
-              "border-neutral-300":
-                team.name === "Missouri" ||
-                team.name === "Tennessee" ||
-                team.name === "Texas" ||
-                team.name === "Vanderbilt",
+              "border-alabama": team.name === "Alabama",
+              "border-arkansas": team.name === "Arkansas",
+              "border-auburn-primary": team.name === "Auburn",
+              "border-florida-primary": team.name === "Florida",
+              "border-georgia": team.name === "Georgia",
+              "border-kentucky": team.name === "Kentucky",
+              "border-lsu-primary": team.name === "LSU",
+              "border-mississippi-state": team.name === "Mississippi State",
+              "border-missouri": team.name === "Missouri",
+              "border-oklahoma": team.name === "Oklahoma",
+              "border-ole-miss-primary": team.name === "Ole Miss",
+              "border-south-carolina": team.name === "South Carolina",
+              "border-tennessee-primary": team.name === "Tennessee",
+              "border-texas": team.name === "Texas",
+              "border-texas-a&m": team.name === "Texas A&M",
+              "border-vanderbilt": team.name === "Vanderbilt",
             }
           )}
         >
@@ -96,7 +92,7 @@ const GameCard = ({ game, team }: Props) => {
             </div>
             <div className="flex flex-col justify-center items-center lg:items-start">
               <div className="text-2xl font-bold">{opponent.toUpperCase()}</div>
-              <div className="text-xl text-black/50">
+              <div className="text-md font-sans text-black/50">
                 {homeGame ? game.away_mascot : game.home_mascot}
               </div>
             </div>
@@ -105,7 +101,9 @@ const GameCard = ({ game, team }: Props) => {
             <div className="text-2xl font-bold">
               {game.neutral_site ? "NEUTRAL" : homeGame ? "HOME" : "AWAY"}
             </div>
-            <div className="text-xl text-black/50">{game.stadium}</div>
+            <div className="text-md font-sans text-black/50">
+              {game.stadium}
+            </div>
           </div>
           <div className="flex-[2_2_0%] flex justify-center items-center text-4xl font-bold">
             {time}

@@ -1,16 +1,16 @@
 import { fetchGames, fetchNextGame, fetchTeam, fetchTeams } from "./lib/data";
-import { Game, NextGame, Team } from "./lib/definitions";
-import GameList from "./ui/schedule/GameList";
+import { NextGame, Team } from "./lib/definitions";
+import Schedule from "./ui/schedule/Schedule";
 
 const Home = async () => {
-  // const teams: Team[] = await fetchTeams();
-  const team: Team = await fetchTeam("vanderbilt");
-  // const games: Game[] = await fetchGames();
-  // const game: NextGame = await fetchNextGame("alabama");
+  const teamName = "alabama";
+
+  const team: Team = await fetchTeam(teamName);
+  const game: NextGame = await fetchNextGame(teamName);
 
   return (
-    <div className="w-full h-full justify-center items-center">
-      <GameList team={team} />
+    <div className="py-4">
+      <Schedule game={game} team={team} />
     </div>
   );
 };
