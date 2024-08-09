@@ -1,16 +1,16 @@
 import { fetchGames, fetchNextGame, fetchTeam, fetchTeams } from "./lib/data";
-import { Game, NextGame, Team, TeamEnum } from "./lib/definitions";
-import GameCard from "./ui/GameCard";
+import { Game, NextGame, Team } from "./lib/definitions";
+import GameList from "./ui/schedule/GameList";
 
 const Home = async () => {
   // const teams: Team[] = await fetchTeams();
-  const team: Team = await fetchTeam("alabama");
+  const team: Team = await fetchTeam("vanderbilt");
   // const games: Game[] = await fetchGames();
   // const game: NextGame = await fetchNextGame("alabama");
 
   return (
-    <div className="w-full h-full p-4 gap-4 flex flex-col justify-center items-center">
-      <GameCard game={team.games![3]} team={team} />
+    <div className="w-full h-full justify-center items-center">
+      <GameList team={team} />
     </div>
   );
 };

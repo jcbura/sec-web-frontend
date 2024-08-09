@@ -4,7 +4,9 @@ export type Game = {
   game_time?: string | null;
   stadium: string;
   home_team: string;
+  home_mascot: string;
   away_team: string;
+  away_mascot: string;
   home_score?: number | null;
   away_score?: number | null;
   conference_game: boolean;
@@ -14,7 +16,7 @@ export type Game = {
 export type NextGame = {
   id: number;
   name: string;
-  mascot?: string | null;
+  mascot: string;
   stadium: string;
   total_wins?: number | 0;
   total_losses?: number | 0;
@@ -36,7 +38,7 @@ export type NextGame = {
 export type Team = {
   id: number;
   name: string;
-  mascot?: string | null;
+  mascot: string;
   stadium: string;
   total_wins?: number | 0;
   total_losses?: number | 0;
