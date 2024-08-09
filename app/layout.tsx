@@ -1,8 +1,10 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { Teko } from "next/font/google";
 import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
+const teko = Teko({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={teko.className}>{children}</body>
     </html>
   );
 };

@@ -52,7 +52,7 @@ export type Team = {
   primary_color?: string | null;
   secondary_color?: string | null;
   sec_team?: boolean | false;
-  games?: [Game];
+  games?: Game[];
 };
 
 export type TeamEnum =
