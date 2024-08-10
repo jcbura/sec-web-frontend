@@ -8,7 +8,7 @@ export const fetchTeams = async () => {
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
-    const repo: [Team] = await res.json();
+    const repo: Team[] = await res.json();
     return repo;
   } catch (error) {
     console.error("Error:", error);
@@ -38,7 +38,7 @@ export const fetchGames = async () => {
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
-    const repo: [Game] = await res.json();
+    const repo: Game[] = await res.json();
     return repo;
   } catch (error) {
     console.error("Error:", error);
@@ -61,5 +61,19 @@ export const fetchNextGame = async (team: TeamEnum) => {
   }
 };
 
-// FINISH AND MAKE SEARCH BAR
-export const searchTeam = async (team: string) => {};
+export const searchTeam = async (team: string) => {
+  noStore();
+  try {
+    const res = await fetch(
+      `http://localhost:3000/api/teams/search?name=${team}`
+    );
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.statusText}`);
+    }
+    const repo: Team[] = await res.json();
+    return repo;
+  } catch (error) {
+    console.error("Error:", error);
+    throw new Error("Failed to find teams.");
+  }
+};
