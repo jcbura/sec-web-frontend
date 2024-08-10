@@ -2,6 +2,7 @@ import { unstable_noStore as noStore } from "next/cache";
 import { Game, NextGame, Team, TeamEnum } from "./definitions";
 
 export const fetchTeams = async () => {
+  noStore();
   try {
     const res = await fetch("http://localhost:3000/api/teams");
     if (!res.ok) {
@@ -16,6 +17,7 @@ export const fetchTeams = async () => {
 };
 
 export const fetchTeam = async (team: TeamEnum) => {
+  noStore();
   try {
     const res = await fetch(`http://localhost:3000/api/teams/${team}`);
     if (!res.ok) {
@@ -30,6 +32,7 @@ export const fetchTeam = async (team: TeamEnum) => {
 };
 
 export const fetchGames = async () => {
+  noStore();
   try {
     const res = await fetch("http://localhost:3000/api/games");
     if (!res.ok) {
@@ -57,3 +60,6 @@ export const fetchNextGame = async (team: TeamEnum) => {
     throw new Error("Failed to fetch game.");
   }
 };
+
+// FINISH AND MAKE SEARCH BAR
+export const searchTeam = async (team: string) => {};

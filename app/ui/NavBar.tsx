@@ -1,7 +1,6 @@
 import clsx from "clsx";
-import Image from "next/image";
+
 import Link from "next/link";
-import { getDecodedName } from "../lib/scripts";
 import { Team } from "../lib/definitions";
 
 interface Props {
@@ -39,7 +38,7 @@ const NavBar = ({ team }: Props) => {
         <div className="flex-1 text-4xl text-white font-bold">
           {!team ? "Southeastern Conference" : `${team?.name} ${team?.mascot}`}
         </div>
-        <div className="w-80 h-8 hidden md:flex justify-center items-center bg-white border border-neutral-300 rounded-md"></div>
+        <div className="w-[250px] h-8 hidden md:flex justify-center items-center bg-white border border-neutral-300 rounded-xl"></div>
       </div>
       <div className="w-full h-16 px-8 py-4 flex justify-start items-center bg-white shadow-md">
         <Link href={`/teams`} className="text-2xl font-bold" scroll={!team}>

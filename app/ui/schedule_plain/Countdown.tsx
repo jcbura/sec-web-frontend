@@ -22,6 +22,7 @@ const Countdown = ({ game, team }: Props) => {
 
   const homeGame = nextGame?.home_team === team.name;
   const opponent = homeGame ? nextGame.away_team : nextGame?.home_team;
+  const opponentRank = homeGame ? nextGame.away_rank : nextGame?.home_rank;
 
   const teamIcon = getDecodedName(team.name);
   const opponentIcon = getDecodedName(opponent || "");
@@ -62,8 +63,13 @@ const Countdown = ({ game, team }: Props) => {
               alt={`${teamIcon} icon`}
               className="w-22 h-22"
             />
-            <div className="hidden lg:flex lg:justify-center lg:items-center text-2xl font-bold">
-              {team.name.toUpperCase()}
+            <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
+              {team.team_rank && (
+                <div className="text-lg font-bold">{`No. ${team.team_rank}`}</div>
+              )}
+              <div className="text-2xl font-bold">
+                {team.name.toUpperCase()}
+              </div>
             </div>
           </div>
           <div className="w-full h-full flex justify-center items-center text-xl font-bold">
@@ -77,8 +83,13 @@ const Countdown = ({ game, team }: Props) => {
               alt={`${opponentIcon} icon`}
               className="w-22 h-22"
             />
-            <div className="hidden lg:flex lg:justify-center lg:items-center text-2xl font-bold">
-              {opponent?.toUpperCase()}
+            <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
+              {opponentRank && (
+                <div className="text-lg font-bold">{`No. ${opponentRank}`}</div>
+              )}
+              <div className="text-2xl font-bold">
+                {opponent?.toUpperCase()}
+              </div>
             </div>
           </div>
         </div>

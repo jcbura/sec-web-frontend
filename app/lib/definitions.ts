@@ -5,8 +5,10 @@ export type Game = {
   stadium: string;
   home_team: string;
   home_mascot: string;
+  home_rank?: number | null;
   away_team: string;
   away_mascot: string;
+  away_rank?: number | null;
   home_score?: number | null;
   away_score?: number | null;
   conference_game: boolean;

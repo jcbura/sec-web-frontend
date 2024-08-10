@@ -14,6 +14,7 @@ const GameCard = ({ game, team }: Props) => {
 
   const homeGame = game.home_team === team.name;
   const opponent = homeGame ? game.away_team : game.home_team;
+  const opponentRank = homeGame ? game.away_rank : game.home_rank;
 
   const teamIcon = getDecodedName(team.name);
   const opponentIcon = getDecodedName(opponent);
@@ -69,7 +70,14 @@ const GameCard = ({ game, team }: Props) => {
               />
             </div>
             <div className="flex flex-col justify-center items-center lg:items-start">
-              <div className="text-2xl font-bold">{opponent.toUpperCase()}</div>
+              <div className="flex justify-center items-center gap-2">
+                {opponentRank && (
+                  <div className="text-lg font-bold">{`No. ${opponentRank}`}</div>
+                )}
+                <div className="text-2xl font-bold">
+                  {opponent.toUpperCase()}
+                </div>
+              </div>
               <div className="text-sm font-sans text-black/50">
                 {homeGame ? game.away_mascot : game.home_mascot}
               </div>
