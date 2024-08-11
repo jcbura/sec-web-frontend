@@ -1,11 +1,11 @@
+"use client";
+
 import TeamCard from "./TeamCard";
-import { Team } from "@/app/lib/definitions";
+import { useTeam } from "./TeamContext";
 
-interface Props {
-  teams: Team[];
-}
+const TeamList = () => {
+  const { teams } = useTeam();
 
-const TeamList = ({ teams }: Props) => {
   return (
     <div className="w-full h-full gap-4 flex flex-col justify-center items-center bg-white">
       {teams.map((team) => (

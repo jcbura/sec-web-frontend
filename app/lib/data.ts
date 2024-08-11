@@ -1,5 +1,6 @@
 import { unstable_noStore as noStore } from "next/cache";
 import { Game, NextGame, SortEnum, Team, TeamEnum } from "./definitions";
+import { getDecodedName } from "./scripts";
 
 export const fetchTeams = async (sort?: SortEnum) => {
   noStore();
@@ -93,4 +94,16 @@ export const searchTeam = async (team: string) => {
     console.error("Error:", error);
     throw new Error("Failed to find teams.");
   }
+};
+
+export const getNextGameArray = async (teams: Team[]) => {
+  const nextGames: NextGame[] = await Promise.all(
+    teams.map(async (team) => {
+      const nextGame = await fetchNextGame(
+        getDecodedName(team.name) as TeamEnum
+      );
+      return nextGame;
+    })
+  );
+  return nextGames;
 };

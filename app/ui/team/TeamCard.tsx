@@ -1,19 +1,19 @@
+"use client";
+
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { Team, TeamEnum } from "@/app/lib/definitions";
+import { NextGame, Team, TeamEnum } from "@/app/lib/definitions";
 import { getDecodedName, formatDate, formatTime } from "@/app/lib/scripts";
 import { fetchNextGame } from "@/app/lib/data";
 
 interface Props {
-  team: Team;
+  team: NextGame;
 }
 
-const TeamCard = async ({ team }: Props) => {
+const TeamCard = ({ team }: Props) => {
   const teamName = getDecodedName(team.name);
-  const name: TeamEnum = teamName as TeamEnum;
-  const nextGame = await fetchNextGame(name);
-  const game = nextGame.next_game;
+  const game = team.next_game;
 
   const [date, day] = formatDate(game?.game_date || "", "short");
   const time = formatTime(game?.game_time || "");
