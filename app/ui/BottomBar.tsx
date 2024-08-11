@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { Team } from "../lib/definitions";
+import { getDecodedName } from "../lib/scripts";
 
 interface Props {
   team?: Team;
@@ -35,7 +36,9 @@ const BottomBar = ({ team }: Props) => {
       )}
     >
       <Image
-        src={`/sec-icons/${team ? `${team.name}-alt` : "sec"}.svg`}
+        src={`/sec-icons/${
+          team ? `${getDecodedName(team.name)}-alt` : "sec"
+        }.svg`}
         width={62}
         height={62}
         alt="sec icon"
