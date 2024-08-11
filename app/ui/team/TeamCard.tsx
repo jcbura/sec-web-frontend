@@ -107,13 +107,15 @@ const TeamCard = ({ team }: Props) => {
         </div>
       </div>
       <div className="h-12 w-full px-7 py-2.5 flex justify-center lg:justify-end items-center bg-neutral-300 border border-neutral-300 border-t border-b border-l border-r">
-        <Image
-          src={`/sec-icons/${teamName}.svg`}
-          width={72}
-          height={72}
-          alt={`${teamName} sec icon`}
-          className="w-8 h-8"
-        />
+        <Link href="/teams" scroll={false}>
+          <Image
+            src={`/sec-icons/${teamName}.svg`}
+            width={72}
+            height={72}
+            alt={`${teamName} sec icon`}
+            className="w-8 h-8"
+          />
+        </Link>
       </div>
     </div>
   );

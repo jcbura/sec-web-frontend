@@ -61,7 +61,15 @@ const GameCard = ({ game, team }: Props) => {
         </div>
         <div className="w-full h-full p-4 gap-4 flex flex-col lg:flex-row justify-center lg:justiy-start items-center border border-neutral-300 border-t-0 lg:border-t border-b-0 border-l lg:border-l-0 border-r">
           <div className="gap-4 flex-[3_3_0%] flex flex-col lg:flex-row justify-center lg:justify-start items-center">
-            <div className="gap-4 flex justify-center items-center">
+            <Link
+              href={
+                game.conference_game ? `/teams/${getDecodedName(opponent)}` : ""
+              }
+              scroll={game.conference_game ? true : false}
+              className={clsx("gap-4 flex justify-center items-center", {
+                "cursor-not-allowed": !game.conference_game,
+              })}
+            >
               <Image
                 src={`/team-icons/${opponentIcon}.png`}
                 width={72}
@@ -69,8 +77,19 @@ const GameCard = ({ game, team }: Props) => {
                 alt={`${teamIcon} icon`}
                 className="w-22 h-22"
               />
-            </div>
-            <div className="flex flex-col justify-center items-center lg:items-start">
+            </Link>
+            <Link
+              href={
+                game.conference_game ? `/teams/${getDecodedName(opponent)}` : ""
+              }
+              scroll={game.conference_game ? true : false}
+              className={clsx(
+                "flex flex-col justify-center items-center lg:items-start",
+                {
+                  "cursor-not-allowed": !game.conference_game,
+                }
+              )}
+            >
               <div className="flex justify-center items-center gap-2">
                 {opponentRank && (
                   <div className="text-lg font-bold">{`No. ${opponentRank}`}</div>
@@ -82,7 +101,7 @@ const GameCard = ({ game, team }: Props) => {
               <div className="text-sm font-sans text-black/50">
                 {homeGame ? game.away_mascot : game.home_mascot}
               </div>
-            </div>
+            </Link>
           </div>
           <div className="flex-[2_2_0%] flex flex-col justify-center items-center lg:items-start">
             <div className="text-2xl font-bold">
