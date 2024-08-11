@@ -18,7 +18,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={teko.className}>{children}</body>
+      <body className={`${teko.className} tracking-wide`}>{children}</body>
     </html>
   );
 };

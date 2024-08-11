@@ -76,3 +76,5 @@ export type TeamEnum =
   | "texas"
   | "texas_a&m"
   | "vanderbilt";
+
+export type SortEnum = "alpha" | "rank" | "record";

@@ -18,6 +18,7 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     </SearchContext.Provider>
   );
 };
+
 export const useSearch = () => {
   const context = useContext(SearchContext);
 

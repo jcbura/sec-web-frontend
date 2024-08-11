@@ -1,10 +1,12 @@
 import { unstable_noStore as noStore } from "next/cache";
-import { Game, NextGame, Team, TeamEnum } from "./definitions";
+import { Game, NextGame, SortEnum, Team, TeamEnum } from "./definitions";
 
-export const fetchTeams = async () => {
+export const fetchTeams = async (sort?: SortEnum) => {
   noStore();
   try {
-    const res = await fetch("http://localhost:3000/api/teams");
+    const res = await fetch(
+      `http://localhost:3000/api/teams${sort ? `?sort=${sort}` : ""}`
+    );
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
@@ -54,6 +56,21 @@ export const fetchNextGame = async (team: TeamEnum) => {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
     const repo: NextGame = await res.json();
+    return repo;
+  } catch (error) {
+    console.error("Error:", error);
+    throw new Error("Failed to fetch game.");
+  }
+};
+
+export const fetchSECCGame = async () => {
+  noStore();
+  try {
+    const res = await fetch(`http://localhost:3000/api/games/sec`);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.statusText}`);
+    }
+    const repo: Game = await res.json();
     return repo;
   } catch (error) {
     console.error("Error:", error);

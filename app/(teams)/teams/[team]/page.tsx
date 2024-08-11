@@ -1,7 +1,8 @@
 import NavBar from "@/app/ui/NavBar";
-import Schedule from "@/app/ui/schedule_plain/Schedule";
+import Schedule from "@/app/ui/schedule/Schedule";
 import { fetchNextGame, fetchTeam, searchTeam } from "@/app/lib/data";
 import { NextGame, Team, TeamEnum } from "@/app/lib/definitions";
+import BottomBar from "@/app/ui/BottomBar";
 
 const Page = async ({
   params,
@@ -21,6 +22,7 @@ const Page = async ({
     <div className="w-full h-full flex flex-col gap-8 bg-white">
       <NavBar team={team} teams={teams} />
       <Schedule game={game} team={team} />
+      <BottomBar team={team} />
     </div>
   );
 };

@@ -1,14 +1,12 @@
 import clsx from "clsx";
-import Link from "next/link";
-import SearchWrapper from "./search/SearchWrapper";
+import Image from "next/image";
 import { Team } from "../lib/definitions";
 
 interface Props {
   team?: Team;
-  teams: Team[];
 }
 
-const NavBar = ({ team, teams }: Props) => {
+const BottomBar = ({ team }: Props) => {
   const clsxObj = {
     "bg-alabama": team?.name === "Alabama",
     "bg-arkansas": team?.name === "Arkansas",
@@ -30,27 +28,21 @@ const NavBar = ({ team, teams }: Props) => {
   };
 
   return (
-    <div className="sticky top-0 w-full h-full flex flex-col justify-center items-start">
-      <div
-        className={clsx(
-          "w-full h-20 px-8 py-4 flex justify-start items-center",
-          clsxObj
-        )}
-      >
-        <div className="flex-1 text-4xl text-white font-bold">
-          {!team ? "Southeastern Conference" : `${team?.name} ${team?.mascot}`}
-        </div>
-        <div className="w-[250px] h-full hidden md:flex justify-center items-center">
-          <SearchWrapper teams={teams} />
-        </div>
-      </div>
-      <div className="w-full h-16 px-8 py-4 flex justify-start items-center bg-white shadow-md">
-        <Link href={`/teams`} className="text-2xl font-bold" scroll={!team}>
-          Teams
-        </Link>
-      </div>
+    <div
+      className={clsx(
+        "w-full h-16 px8 py-4 flex justify-center items-center",
+        clsxObj
+      )}
+    >
+      <Image
+        src={`/sec-icons/${team ? `${team.name}-alt` : "sec"}.svg`}
+        width={62}
+        height={62}
+        alt="sec icon"
+        className="w-12 h-12"
+      />
     </div>
   );
 };
 
-export default NavBar;
+export default BottomBar;

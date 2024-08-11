@@ -9,7 +9,7 @@ const GameList = ({ team }: Props) => {
   const games: Game[] = team.games || [];
 
   return (
-    <div className="w-full h-full gap-4 flex flex-col justify-center items-center bg-white dark:bg-neutral-950">
+    <div className="w-full h-full gap-4 flex flex-col justify-center items-center bg-white">
       {games.map((game) => (
         <GameCard key={game.id} game={game} team={team} />
       ))}

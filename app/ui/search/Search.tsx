@@ -33,17 +33,17 @@ const Search = ({ teams }: Props) => {
   return (
     <div
       ref={searchRef}
-      className="w-full hidden md:flex flex-col justify-center items-start"
+      className="w-full flex flex-col justify-center items-start"
     >
       <SearchBar />
       <div className="relative w-full flex flex-col justify-center items-start">
         {teams.length > 0 && (
-          <div className="absolute top-full mt-2 px-2 w-full max-h-[265px] overflow-y-auto justify-center items-start bg-white shadow-md rounded-xl">
+          <div className="absolute top-full mt-2 px-2 w-full max-h-[265px] overflow-y-auto justify-center items-start bg-white shadow-md rounded-md">
             {teams.map((team) => (
               <Link
                 key={team.id}
                 href={`/teams/${getDecodedName(team.name)}`}
-                className="w-full gap-2 my-2 flex justify-start items-center bg-white hover:bg-neutral-50  hover:text-blue-500 rounded-xl"
+                className="px-2 py-1 gap-2 my-2 flex justify-start items-center bg-white hover:bg-neutral-50  hover:text-blue-500 focus:bg-neutral-50 focus:text-blue-500 rounded-md"
               >
                 <Image
                   src={`/team-icons/${getDecodedName(team.name)}.png`}
