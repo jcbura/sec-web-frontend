@@ -25,7 +25,7 @@ const BottomBar = ({ team }: Props) => {
     "bg-texas": team?.name === "Texas",
     "bg-texas-a&m": team?.name === "Texas A&M",
     "bg-vanderbilt": team?.name === "Vanderbilt",
-    "bg-sec": !team,
+    "bg-sec-primary": !team,
   };
 
   return (
@@ -39,8 +39,8 @@ const BottomBar = ({ team }: Props) => {
         src={`/sec-icons/${
           team ? `${getDecodedName(team.name)}-alt` : "sec"
         }.svg`}
-        width={62}
-        height={62}
+        width={200}
+        height={200}
         alt="sec icon"
         className="w-12 h-12"
       />

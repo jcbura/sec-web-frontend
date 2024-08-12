@@ -4,6 +4,7 @@ import { fetchNextGame, fetchTeam, searchTeam } from "@/app/lib/data";
 import { NextGame, Team, TeamEnum } from "@/app/lib/definitions";
 import BottomBar from "@/app/ui/BottomBar";
 
+// SWITCH BACK TO NAVBAR, NOT NAVBAR2
 const Page = async ({
   params,
   searchParams,

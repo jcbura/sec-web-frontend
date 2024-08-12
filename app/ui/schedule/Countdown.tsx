@@ -58,10 +58,10 @@ const Countdown = ({ game, team }: Props) => {
           <div className="w-full h-full flex flex-col justify-center items-center">
             <Image
               src={`/team-icons/${teamIcon}.png`}
-              width={72}
-              height={72}
+              width={200}
+              height={200}
               alt={`${teamIcon} icon`}
-              className="w-22 h-22"
+              className="w-20 h-20"
             />
             <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
               {team.team_rank && (
@@ -78,10 +78,10 @@ const Countdown = ({ game, team }: Props) => {
           <div className="w-full h-full flex flex-col justify-center items-center">
             <Image
               src={`/team-icons/${opponentIcon}.png`}
-              width={72}
-              height={72}
+              width={200}
+              height={200}
               alt={`${opponentIcon} icon`}
-              className="w-22 h-22"
+              className="w-20 h-20"
             />
             <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
               {opponentRank && (

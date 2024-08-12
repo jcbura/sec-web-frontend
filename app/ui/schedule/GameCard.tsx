@@ -72,10 +72,10 @@ const GameCard = ({ game, team }: Props) => {
             >
               <Image
                 src={`/team-icons/${opponentIcon}.png`}
-                width={72}
-                height={72}
+                width={200}
+                height={200}
                 alt={`${teamIcon} icon`}
-                className="w-22 h-22"
+                className="w-16 h-16"
               />
             </Link>
             <Link
@@ -120,8 +120,8 @@ const GameCard = ({ game, team }: Props) => {
         <Link href="/teams">
           <Image
             src={`/sec-icons/${teamIcon}.svg`}
-            width={72}
-            height={72}
+            width={200}
+            height={200}
             alt={`${teamIcon} sec icon`}
             className={clsx("w-8 h-8", {
               hidden: !game.conference_game,

@@ -65,10 +65,10 @@ const TeamCard = ({ team }: Props) => {
               >
                 <Image
                   src={`/team-icons/${teamName}.png`}
-                  width={72}
-                  height={72}
+                  width={200}
+                  height={200}
                   alt={`${getDecodedName(teamName)} icon`}
-                  className="w-22 h-22"
+                  className="w-16 h-16"
                 />
               </Link>
               <Link
@@ -110,8 +110,8 @@ const TeamCard = ({ team }: Props) => {
         <Link href="/teams" scroll={false}>
           <Image
             src={`/sec-icons/${teamName}.svg`}
-            width={72}
-            height={72}
+            width={200}
+            height={200}
             alt={`${teamName} sec icon`}
             className="w-8 h-8"
           />
