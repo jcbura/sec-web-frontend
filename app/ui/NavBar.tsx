@@ -88,7 +88,7 @@ const NavBar = ({ team, teams }: Props) => {
           <Link
             href={`/teams`}
             className="text-2xl font-bold hover:text-blue-500"
-            scroll={!team}
+            scroll={!team ? false : true}
           >
             Teams
           </Link>

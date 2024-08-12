@@ -5,8 +5,13 @@ import { getDecodedName } from "./scripts";
 export const fetchTeams = async (sort?: SortEnum) => {
   noStore();
   try {
+    // const res = await fetch(
+    //   `http://localhost:3000/api/teams${sort ? `?sort=${sort}` : ""}`
+    // ); // FOR LOCAL
     const res = await fetch(
-      `http://localhost:3000/api/teams${sort ? `?sort=${sort}` : ""}`
+      `https://sec-web-backend-production.up.railway.app/api/teams${
+        sort ? `?sort=${sort}` : ""
+      }`
     );
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
@@ -22,7 +27,10 @@ export const fetchTeams = async (sort?: SortEnum) => {
 export const fetchTeam = async (team: TeamEnum) => {
   noStore();
   try {
-    const res = await fetch(`http://localhost:3000/api/teams/${team}`);
+    // const res = await fetch(`http://localhost:3000/api/teams/${team}`); // FOR LOCAL
+    const res = await fetch(
+      `https://sec-web-backend-production.up.railway.app/api/teams/${team}`
+    );
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
@@ -37,7 +45,10 @@ export const fetchTeam = async (team: TeamEnum) => {
 export const fetchGames = async () => {
   noStore();
   try {
-    const res = await fetch("http://localhost:3000/api/games");
+    // const res = await fetch("http://localhost:3000/api/games"); // FOR LOCAL
+    const res = await fetch(
+      "https://sec-web-backend-production.up.railway.app/api/games"
+    );
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
@@ -52,7 +63,10 @@ export const fetchGames = async () => {
 export const fetchNextGame = async (team: TeamEnum) => {
   noStore();
   try {
-    const res = await fetch(`http://localhost:3000/api/games/${team}`);
+    // const res = await fetch(`http://localhost:3000/api/games/${team}`); // FOR LOCAL
+    const res = await fetch(
+      `https://sec-web-backend-production.up.railway.app/api/games/${team}`
+    );
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
@@ -67,7 +81,10 @@ export const fetchNextGame = async (team: TeamEnum) => {
 export const fetchSECCGame = async () => {
   noStore();
   try {
-    const res = await fetch(`http://localhost:3000/api/games/sec`);
+    // const res = await fetch(`http://localhost:3000/api/games/sec`); // FOR LOCAL
+    const res = await fetch(
+      `https://sec-web-backend-production.up.railway.app/api/games/sec`
+    );
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
@@ -82,8 +99,11 @@ export const fetchSECCGame = async () => {
 export const searchTeam = async (team: string) => {
   noStore();
   try {
+    // const res = await fetch(
+    //   `http://localhost:3000/api/teams/search?name=${team}`
+    // ); // FOR LOCAL
     const res = await fetch(
-      `http://localhost:3000/api/teams/search?name=${team}`
+      `https://sec-web-backend-production.up.railway.app/api/teams/search?name=${team}`
     );
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
@@ -97,6 +117,7 @@ export const searchTeam = async (team: string) => {
 };
 
 export const getNextGameArray = async (teams: Team[]) => {
+  noStore();
   const nextGames: NextGame[] = await Promise.all(
     teams.map(async (team) => {
       const nextGame = await fetchNextGame(
