@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import SearchWrapper from "./search/SearchWrapper";
 import { Team } from "../lib/definitions";
-import { getDecodedName } from "../lib/scripts";
+import { getDecodedName, isMobile } from "../lib/scripts";
+import { headers } from "next/headers";
 
 interface Props {
   team?: Team;
@@ -11,6 +12,9 @@ interface Props {
 }
 
 const NavBar = ({ team, teams }: Props) => {
+  const userAgent = headers().get("user-agent") || "";
+  const mobileCheck = isMobile(userAgent);
+
   const clsxBgObj = {
     "bg-alabama": team?.name === "Alabama",
     "bg-arkansas": team?.name === "Arkansas",
@@ -60,34 +64,53 @@ const NavBar = ({ team, teams }: Props) => {
           clsxBgObj
         )}
       >
-        <div className="flex-1 h-full gap-2 flex justify-start items-center">
-          <div className={clsx("text-4xl font-bold", clsxTextObj)}>
-            {!team ? "Southeastern Conference" : team.name}
+        {!mobileCheck ? (
+          <>
+            <div
+              className={clsx(
+                "flex-1 h-full flex justify-start items-center text-4xl font-bold",
+                clsxTextObj
+              )}
+            >
+              {!team
+                ? "Southeastern Conference"
+                : `${team.name} ${team.mascot}`}
+            </div>
+            <Image
+              src={
+                !team
+                  ? "/white-icons/sec.svg"
+                  : `/white-icons/${getDecodedName(team?.name || "")}.${
+                      team.name === "Alabama" || team.name === "Texas A&M"
+                        ? "svg"
+                        : "png"
+                    }`
+              }
+              width={200}
+              height={200}
+              style={{ objectFit: "contain" }}
+              alt={`${team?.name} icon`}
+              className="hidden md:flex w-12 h-12"
+            />
+          </>
+        ) : (
+          <div
+            className={clsx(
+              "flex-1 h-full flex justify-start items-center text-2xl font-bold",
+              clsxTextObj
+            )}
+          >
+            {!team ? "Southeastern Conference" : `${team.name} ${team.mascot}`}
           </div>
-          <div className={clsx("text-4xl font-bold", clsxTextObj)}>
-            {!team ? "" : team.mascot}
-          </div>
-        </div>
-        <Image
-          src={
-            !team
-              ? "/white-icons/sec.svg"
-              : `/white-icons/${getDecodedName(team?.name || "")}.${
-                  team.name === "Alabama" ? "svg" : "png"
-                }`
-          }
-          width={200}
-          height={200}
-          style={{ objectFit: "contain" }}
-          alt={`${team?.name} icon`}
-          className="hidden md:flex w-12 h-12"
-        />
+        )}
       </div>
       <div className="w-full h-full px-8 p-4 flex justify-start items-center bg-white shadow-md">
         <div className="flex-1 h-full">
           <Link
             href={`/teams`}
-            className="text-2xl font-bold hover:text-blue-500"
+            className={clsx("text-2xl font-bold", {
+              "hover:text-blue-500": !mobileCheck,
+            })}
             scroll={!team ? false : true}
           >
             Teams

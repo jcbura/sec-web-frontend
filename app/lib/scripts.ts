@@ -69,3 +69,7 @@ export const formatTime = (sqlTime: string) => {
   };
   return date.toLocaleTimeString("en-US", options);
 };
+
+export const isMobile = (userAgent: string): boolean => {
+  return /android.+mobile|ip(hone|[oa]d)/i.test(userAgent);
+};

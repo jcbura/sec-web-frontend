@@ -27,7 +27,8 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         </button>
         <button
           className={clsx("lg:hidden flex text-2xl font-bold", {
-            "text-blue-500": teams === alpha,
+            "text-blue-500":
+              teams === alpha || (teams !== rank && teams !== record),
           })}
           onClick={() => setTeams(alpha)}
         >
