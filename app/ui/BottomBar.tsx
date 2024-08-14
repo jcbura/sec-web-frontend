@@ -36,11 +36,11 @@ const BottomBar = ({ team }: Props) => {
       )}
     >
       <Image
-        src={`/sec-icons/${
-          team ? `${getDecodedName(team.name)}-alt` : "sec"
-        }.svg`}
-        width={200}
-        height={200}
+        src={
+          team ? `/sec/white/${getDecodedName(team.name)}.png` : "/sec/sec.png"
+        }
+        width={62}
+        height={62}
         alt="sec icon"
         className="w-12 h-12"
       />

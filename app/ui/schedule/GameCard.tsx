@@ -71,7 +71,7 @@ const GameCard = ({ game, team }: Props) => {
               })}
             >
               <Image
-                src={`/team-icons/${opponentIcon}.png`}
+                src={`/teams/${opponentIcon}.png`}
                 width={200}
                 height={200}
                 alt={`${teamIcon} icon`}
@@ -119,9 +119,9 @@ const GameCard = ({ game, team }: Props) => {
       <div className="h-12 w-full px-7 py-2.5 flex justify-center lg:justify-end items-center bg-neutral-300 border border-neutral-300 border-t border-b border-l border-r">
         <Link href="/teams">
           <Image
-            src={`/sec-icons/${teamIcon}.svg`}
-            width={200}
-            height={200}
+            src={`/sec/base/${teamIcon}.png`}
+            width={64}
+            height={64}
             alt={`${teamIcon} sec icon`}
             className={clsx("w-8 h-8", {
               hidden: !game.conference_game,

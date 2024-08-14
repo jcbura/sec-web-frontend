@@ -64,7 +64,7 @@ const TeamCard = ({ team }: Props) => {
                 className="gap-4 flex justify-center items-center"
               >
                 <Image
-                  src={`/team-icons/${teamName}.png`}
+                  src={`/teams/${teamName}.png`}
                   width={200}
                   height={200}
                   alt={`${getDecodedName(teamName)} icon`}
@@ -109,9 +109,9 @@ const TeamCard = ({ team }: Props) => {
       <div className="h-12 w-full px-7 py-2.5 flex justify-center lg:justify-end items-center bg-neutral-300 border border-neutral-300 border-t border-b border-l border-r">
         <Link href="/teams" scroll={false}>
           <Image
-            src={`/sec-icons/${teamName}.svg`}
-            width={200}
-            height={200}
+            src={`/sec/base/${teamName}.png`}
+            width={62}
+            height={62}
             alt={`${teamName} sec icon`}
             className="w-8 h-8"
           />

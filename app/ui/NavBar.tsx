@@ -66,28 +66,19 @@ const NavBar = ({ team, teams }: Props) => {
       >
         {!mobileCheck ? (
           <>
-            <div
-              className={clsx(
-                "flex-1 h-full flex justify-start items-center text-4xl font-bold",
-                clsxTextObj
-              )}
-            >
+            <div className="flex-1 h-full flex justify-start items-center text-4xl text-white font-bold">
               {!team
                 ? "Southeastern Conference"
                 : `${team.name} ${team.mascot}`}
             </div>
             <Image
               src={
-                !team
-                  ? "/white-icons/sec.svg"
-                  : `/white-icons/${getDecodedName(team?.name || "")}.${
-                      team.name === "Alabama" || team.name === "Texas A&M"
-                        ? "svg"
-                        : "png"
-                    }`
+                team
+                  ? `/sec/white/${getDecodedName(team.name)}.png`
+                  : "/sec/sec.png"
               }
-              width={200}
-              height={200}
+              width={62}
+              height={62}
               style={{ objectFit: "contain" }}
               alt={`${team?.name} icon`}
               className="hidden md:flex w-12 h-12"

@@ -40,7 +40,7 @@ const SECCountdown = ({ game }: Props) => {
         <div className="w-full h-full flex justify-center items-center text-4xl font-bold">
           <div className="w-full h-full gap-2 flex flex-col justify-center items-center">
             <Image
-              src={`/sec-icons/sec.svg`}
+              src={`/sec/sec.png`}
               width={62}
               height={62}
               alt="sec icon"

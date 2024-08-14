@@ -57,7 +57,7 @@ const Countdown = ({ game, team }: Props) => {
         <div className="w-3/4 h-full flex justify-center items-center">
           <div className="w-full h-full flex flex-col justify-center items-center">
             <Image
-              src={`/team-icons/${teamIcon}.png`}
+              src={`/teams/${teamIcon}.png`}
               width={200}
               height={200}
               alt={`${teamIcon} icon`}
@@ -77,7 +77,7 @@ const Countdown = ({ game, team }: Props) => {
           </div>
           <div className="w-full h-full flex flex-col justify-center items-center">
             <Image
-              src={`/team-icons/${opponentIcon}.png`}
+              src={`/teams/${opponentIcon}.png`}
               width={200}
               height={200}
               alt={`${opponentIcon} icon`}
