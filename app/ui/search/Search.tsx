@@ -52,7 +52,7 @@ const Search = ({ teams }: Props) => {
                 }}
               >
                 <Image
-                  src={`/team-icons/${getDecodedName(team.name)}.png`}
+                  src={`/teams/${getDecodedName(team.name)}.png`}
                   width={72}
                   height={72}
                   alt={`${getDecodedName(team.name)}`}

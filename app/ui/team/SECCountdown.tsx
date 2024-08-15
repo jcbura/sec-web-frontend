@@ -36,19 +36,15 @@ const SECCountdown = ({ game }: Props) => {
         <div className="text-xl font-bold text-black/50">SECCG</div>
         <div className="text-xl font-bold">{`${date.toUpperCase()} - ${time.toUpperCase()}`}</div>
       </div>
-      <div className="w-full h-full gap-4 flex flex-col justify-center items-center">
-        <div className="w-full h-full flex justify-center items-center text-4xl font-bold">
-          <div className="w-full h-full gap-2 flex flex-col justify-center items-center">
-            <Image
-              src={`/sec/sec.png`}
-              width={62}
-              height={62}
-              alt="sec icon"
-              className="w-22 h-22"
-            />
-            <div className="text-4xl font-bold">SEC CHAMPIONSHIP GAME</div>
-          </div>
-        </div>
+      <div className="w-full h-full gap-2 flex flex-col justify-center items-center">
+        <Image
+          src={`/sec/sec.png`}
+          width={62}
+          height={62}
+          alt="sec icon"
+          className="w-22 h-22"
+        />
+        <div className="text-4xl font-bold">SEC CHAMPIONSHIP GAME</div>
       </div>
       <div className="w-full lg:w-2/3 h-full flex justify-between items-center border border-neutral-300 border-t border-b-0 border-l-0 lg:border-l border-r-0 lg:border-r">
         <div className="w-full h-full gap-2 p-4 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-l-0 border-r">

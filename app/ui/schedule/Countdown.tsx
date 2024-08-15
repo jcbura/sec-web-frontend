@@ -49,48 +49,42 @@ const Countdown = ({ game, team }: Props) => {
 
   return (
     <div className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full gap-4 flex flex-col justify-center items-center border bg-white border-neutral-300">
-      <div className="w-full h-full gap-0 lg:gap-4 px-8 pt-4 flex justify-between lg:justify-start items-center">
+      <div className="w-full h-full lg:gap-4 px-8 pt-4 flex justify-between lg:justify-start items-center">
         <div className="text-xl font-bold text-black/50">NEXT GAME</div>
         <div className="text-xl font-bold">{`${date.toUpperCase()} - ${time.toUpperCase()}`}</div>
       </div>
-      <div className="w-full h-full gap-4 flex flex-col justify-center items-center">
-        <div className="w-3/4 h-full flex justify-center items-center">
-          <div className="w-full h-full flex flex-col justify-center items-center">
-            <Image
-              src={`/teams/${teamIcon}.png`}
-              width={200}
-              height={200}
-              alt={`${teamIcon} icon`}
-              className="w-20 h-20"
-            />
-            <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
-              {team.team_rank && (
-                <div className="text-lg font-bold">{`No. ${team.team_rank}`}</div>
-              )}
-              <div className="text-2xl font-bold">
-                {team.name.toUpperCase()}
-              </div>
-            </div>
+      <div className="w-3/4 h-full flex justify-center items-center">
+        <div className="w-full h-full flex flex-col justify-center items-center">
+          <Image
+            src={`/teams/${teamIcon}.png`}
+            width={200}
+            height={200}
+            alt={`${teamIcon} icon`}
+            className="w-20 h-20"
+          />
+          <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
+            {team.team_rank && (
+              <div className="text-lg font-bold">{`No. ${team.team_rank}`}</div>
+            )}
+            <div className="text-2xl font-bold">{team.name.toUpperCase()}</div>
           </div>
-          <div className="w-full h-full flex justify-center items-center text-xl font-bold">
-            {nextGame?.neutral_site ? "VS" : homeGame ? "VS" : "AT"}
-          </div>
-          <div className="w-full h-full flex flex-col justify-center items-center">
-            <Image
-              src={`/teams/${opponentIcon}.png`}
-              width={200}
-              height={200}
-              alt={`${opponentIcon} icon`}
-              className="w-20 h-20"
-            />
-            <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
-              {opponentRank && (
-                <div className="text-lg font-bold">{`No. ${opponentRank}`}</div>
-              )}
-              <div className="text-2xl font-bold">
-                {opponent?.toUpperCase()}
-              </div>
-            </div>
+        </div>
+        <div className="w-full h-full flex justify-center items-center text-xl font-bold">
+          {nextGame?.neutral_site ? "VS" : homeGame ? "VS" : "AT"}
+        </div>
+        <div className="w-full h-full flex flex-col justify-center items-center">
+          <Image
+            src={`/teams/${opponentIcon}.png`}
+            width={200}
+            height={200}
+            alt={`${opponentIcon} icon`}
+            className="w-20 h-20"
+          />
+          <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
+            {opponentRank && (
+              <div className="text-lg font-bold">{`No. ${opponentRank}`}</div>
+            )}
+            <div className="text-2xl font-bold">{opponent?.toUpperCase()}</div>
           </div>
         </div>
       </div>
