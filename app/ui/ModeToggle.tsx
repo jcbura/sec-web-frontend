@@ -45,13 +45,13 @@ const ModeToggle = ({ isMobile }: Props) => {
     >
       {darkMode ? (
         <SunIcon
-          className={clsx("h-6 w-6 text-black/50 dark:text-white/50", {
+          className={clsx("h-6 w-6 text-black/50", {
             "dark:hover:fill-blue-500 dark:hover:text-blue-500": !isMobile,
           })}
         />
       ) : (
         <MoonIcon
-          className={clsx("h-6 w-6 text-black/50 dark:text-white/50", {
+          className={clsx("h-6 w-6 text-black/50", {
             " hover:fill-blue-500 hover:text-blue-500": !isMobile,
           })}
         />

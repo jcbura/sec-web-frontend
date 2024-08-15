@@ -43,7 +43,7 @@ const Home = async ({
         record={record}
         isMobile={mobileCheck}
       />
-      <BottomBar />
+      <BottomBar isMobile={mobileCheck} />
     </div>
   );
 };

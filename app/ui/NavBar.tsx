@@ -5,6 +5,7 @@ import SearchWrapper from "./search/SearchWrapper";
 import { Team } from "../lib/definitions";
 import { getDecodedName, isMobile } from "../lib/scripts";
 import { headers } from "next/headers";
+import ModeToggle from "./ModeToggle";
 
 interface Props {
   team?: Team;
@@ -58,7 +59,7 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
     <div className="sticky top-0 w-full h-full flex flex-col justify-center items-start shadow-md">
       <div
         className={clsx(
-          "w-full h-20 px-8 py-4 gap-2 flex justify-start items-center",
+          "w-full h-20 px-8 py-4 flex justify-start items-center",
           clsxBgObj
         )}
       >
@@ -79,16 +80,32 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
               height={62}
               style={{ objectFit: "contain" }}
               alt={`${team?.name} icon`}
-              className="hidden md:flex w-12 h-12"
+              className="hidden sm:flex w-12 h-12"
             />
           </>
         ) : (
-          <div className="flex-1 h-full flex justify-start items-center text-2xl text-white font-bold">
-            {!team ? "Southeastern Conference" : `${team.name} ${team.mascot}`}
-          </div>
+          <>
+            <div className="flex-1 h-full flex justify-start items-center text-2xl text-white font-bold">
+              {!team
+                ? "Southeastern Conference"
+                : `${team.name} ${team.mascot}`}
+            </div>
+            <Image
+              src={
+                team
+                  ? `/sec/white/${getDecodedName(team.name)}.png`
+                  : "/sec/sec.png"
+              }
+              width={62}
+              height={62}
+              style={{ objectFit: "contain" }}
+              alt={`${team?.name} icon`}
+              className="hidden sm:flex w-10 h-10"
+            />
+          </>
         )}
       </div>
-      <div className="w-full h-full px-8 p-4 flex justify-start items-center bg-white shadow-md">
+      <div className="w-full h-full px-8 p-4 gap-4 flex justify-start items-center bg-white shadow-md">
         <div className="flex-1 h-full">
           <Link
             href={`/teams`}
@@ -100,7 +117,7 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
             Teams
           </Link>
         </div>
-        <div className="w-[250px] h-full hidden md:flex justify-center items-center">
+        <div className="h-full hidden md:flex justify-center items-center">
           <SearchWrapper teams={teams} isMobile={isMobile} />
         </div>
       </div>

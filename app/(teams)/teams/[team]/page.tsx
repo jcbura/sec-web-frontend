@@ -27,7 +27,7 @@ const Page = async ({
     <div className="w-full h-full flex flex-col gap-8 bg-white">
       <NavBar team={team} teams={teams} isMobile={mobileCheck} />
       <Schedule game={game} team={team} />
-      <BottomBar team={team} />
+      <BottomBar team={team} isMobile={mobileCheck} />
     </div>
   );
 };

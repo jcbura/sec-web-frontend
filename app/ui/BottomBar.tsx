@@ -2,13 +2,13 @@ import clsx from "clsx";
 import Image from "next/image";
 import { Team } from "../lib/definitions";
 import { getDecodedName } from "../lib/scripts";
-import ModeToggle from "./ModeToggle";
 
 interface Props {
   team?: Team;
+  isMobile: boolean;
 }
 
-const BottomBar = ({ team }: Props) => {
+const BottomBar = ({ team, isMobile }: Props) => {
   const clsxObj = {
     "bg-alabama": team?.name === "Alabama",
     "bg-arkansas": team?.name === "Arkansas",
@@ -32,19 +32,35 @@ const BottomBar = ({ team }: Props) => {
   return (
     <div
       className={clsx(
-        "w-full h-16 px-8 py-4 gap-4 flex justify-center items-center",
+        "relative w-full h-16 px-8 gap-4 flex justify-center items-center",
         clsxObj
       )}
     >
-      <Image
-        src={
-          team ? `/sec/white/${getDecodedName(team.name)}.png` : "/sec/sec.png"
-        }
-        width={62}
-        height={62}
-        alt="sec icon"
-        className="w-12 h-12"
-      />
+      {!isMobile ? (
+        <Image
+          src={
+            team
+              ? `/sec/white/${getDecodedName(team.name)}.png`
+              : "/sec/sec.png"
+          }
+          width={62}
+          height={62}
+          alt="sec icon"
+          className="w-12 h-12"
+        />
+      ) : (
+        <Image
+          src={
+            team
+              ? `/sec/white/${getDecodedName(team.name)}.png`
+              : "/sec/sec.png"
+          }
+          width={62}
+          height={62}
+          alt="sec icon"
+          className="w-10 h-10"
+        />
+      )}
     </div>
   );
 };
