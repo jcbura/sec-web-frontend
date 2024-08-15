@@ -39,7 +39,7 @@ const Record = ({ team }: Props) => {
         <div className="flex-1 w-full h-full gap-2 p-4 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b md:border-b-0 border-l-0 border-r-0 md:border-r">
           <div className="text-sm font-sans text-black/50">Percentage</div>
           <div className="text-2xl font-bold">{`${
-            totalPercentage ? totalPercentage.toFixed(3) : "0.000"
+            conferencePercentage ? conferencePercentage.toFixed(3) : "0.000"
           }`}</div>
         </div>
       </div>

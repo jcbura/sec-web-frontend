@@ -13,6 +13,7 @@ export type Game = {
   away_score?: number | null;
   conference_game: boolean;
   neutral_site: boolean;
+  game_played: boolean;
 };
 
 export type NextGame = {
