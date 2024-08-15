@@ -31,7 +31,7 @@ const SECCountdown = ({ game }: Props) => {
   }, [game.game_date, game.game_time]);
 
   return (
-    <div className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full gap-4 flex flex-col justify-center items-center border bg-white border-neutral-300">
+    <div className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full gap-4 flex flex-col justify-center items-center border bg-white border-neutral-300 text-black">
       <div className="w-full h-full gap-0 lg:gap-4 px-8 pt-4 flex justify-between lg:justify-start items-center">
         <div className="text-xl font-bold text-black/50">SECCG</div>
         <div className="text-xl font-bold">{`${date.toUpperCase()} - ${time.toUpperCase()}`}</div>

@@ -3,9 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SearchWrapper from "./search/SearchWrapper";
 import { Team } from "../lib/definitions";
-import { getDecodedName, isMobile } from "../lib/scripts";
-import { headers } from "next/headers";
-import ModeToggle from "./ModeToggle";
+import { getDecodedName } from "../lib/scripts";
 
 interface Props {
   team?: Team;
@@ -105,11 +103,11 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
           </>
         )}
       </div>
-      <div className="w-full h-full px-8 p-4 gap-4 flex justify-start items-center bg-white shadow-md">
+      <div className="w-full h-full px-8 p-4 gap-4 flex justify-start items-center bg-white">
         <div className="flex-1 h-full">
           <Link
             href={`/teams`}
-            className={clsx("text-2xl font-bold", {
+            className={clsx("text-2xl font-bold text-black", {
               "hover:text-blue-500": !isMobile,
             })}
             scroll={!team ? false : true}
@@ -117,7 +115,7 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
             Teams
           </Link>
         </div>
-        <div className="h-full hidden md:flex justify-center items-center">
+        <div className="w-[210px] h-full hidden md:flex justify-center items-center">
           <SearchWrapper teams={teams} isMobile={isMobile} />
         </div>
       </div>

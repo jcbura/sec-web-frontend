@@ -14,7 +14,7 @@ const Record = ({ team }: Props) => {
     ((team.conference_wins || 0) + (team.conference_losses || 0));
 
   return (
-    <div className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full flex flex-col md:flex-row justify-center items-center border bg-white border-neutral-300">
+    <div className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full flex flex-col md:flex-row justify-center items-center border bg-white border-neutral-300 text-black">
       <div className="flex-[2_2_0%] w-full h-full flex justify-center items-center">
         <div className="flex-1 w-full h-full gap-2 p-4 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b md:border-b-0 border-l-0 border-r">
           <div className="text-sm font-sans text-black/50">Overall</div>

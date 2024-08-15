@@ -40,7 +40,7 @@ const SearchBar = () => {
   return (
     <div className="relative w-full h-full flex justify-start items-center">
       <input
-        className="w-full h-full pl-10 pr-4 py-2 flex justify-start items-center bg-white border border-neutral-300 text-md font-sans text-black placeholder:text-black/50 focus:outline-none focus:ring focus:ring-blue-500 rounded-md"
+        className="w-full h-full pl-10 pr-4 py-2 flex justify-start items-center bg-white border border-neutral-300 text-md font-sans text-black placeholder:text-black/50 focus:outline-none focus:border-transparent focus:ring focus:ring-blue-500 rounded-md"
         ref={inputRef}
         onChange={(e) => {
           setInput(e.target.value);
