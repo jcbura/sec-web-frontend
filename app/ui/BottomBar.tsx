@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { Team } from "../lib/definitions";
 import { getDecodedName } from "../lib/scripts";
+import ModeToggle from "./ModeToggle";
 
 interface Props {
   team?: Team;
@@ -31,7 +32,7 @@ const BottomBar = ({ team }: Props) => {
   return (
     <div
       className={clsx(
-        "w-full h-16 px8 py-4 flex justify-center items-center",
+        "w-full h-16 px-8 py-4 gap-4 flex justify-center items-center",
         clsxObj
       )}
     >
