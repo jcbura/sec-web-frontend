@@ -9,12 +9,10 @@ import { headers } from "next/headers";
 interface Props {
   team?: Team;
   teams: Team[];
+  isMobile: boolean;
 }
 
-const NavBar = ({ team, teams }: Props) => {
-  const userAgent = headers().get("user-agent") || "";
-  const mobileCheck = isMobile(userAgent);
-
+const NavBar = ({ team, teams, isMobile }: Props) => {
   const clsxBgObj = {
     "bg-alabama": team?.name === "Alabama",
     "bg-arkansas": team?.name === "Arkansas",
@@ -64,7 +62,7 @@ const NavBar = ({ team, teams }: Props) => {
           clsxBgObj
         )}
       >
-        {!mobileCheck ? (
+        {!isMobile ? (
           <>
             <div className="flex-1 h-full flex justify-start items-center text-4xl text-white font-bold">
               {!team
@@ -85,12 +83,7 @@ const NavBar = ({ team, teams }: Props) => {
             />
           </>
         ) : (
-          <div
-            className={clsx(
-              "flex-1 h-full flex justify-start items-center text-2xl font-bold",
-              clsxTextObj
-            )}
-          >
+          <div className="flex-1 h-full flex justify-start items-center text-2xl text-white font-bold">
             {!team ? "Southeastern Conference" : `${team.name} ${team.mascot}`}
           </div>
         )}
@@ -100,7 +93,7 @@ const NavBar = ({ team, teams }: Props) => {
           <Link
             href={`/teams`}
             className={clsx("text-2xl font-bold", {
-              "hover:text-blue-500": !mobileCheck,
+              "hover:text-blue-500": !isMobile,
             })}
             scroll={!team ? false : true}
           >
@@ -108,7 +101,7 @@ const NavBar = ({ team, teams }: Props) => {
           </Link>
         </div>
         <div className="w-[250px] h-full hidden md:flex justify-center items-center">
-          <SearchWrapper teams={teams} />
+          <SearchWrapper teams={teams} isMobile={isMobile} />
         </div>
       </div>
     </div>

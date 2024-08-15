@@ -4,12 +4,13 @@ import { Team } from "@/app/lib/definitions";
 
 interface Props {
   teams: Team[];
+  isMobile: boolean;
 }
 
-const SearchWrapper = ({ teams }: Props) => {
+const SearchWrapper = ({ teams, isMobile }: Props) => {
   return (
     <SearchProvider>
-      <Search teams={teams} />
+      <Search teams={teams} isMobile={isMobile} />
     </SearchProvider>
   );
 };

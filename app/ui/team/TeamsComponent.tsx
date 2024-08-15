@@ -9,14 +9,20 @@ interface Props {
   alpha: NextGame[];
   rank: NextGame[];
   record: NextGame[];
+  isMobile: boolean;
 }
 
-const TeamsComponent = ({ game, alpha, rank, record }: Props) => {
+const TeamsComponent = ({ game, alpha, rank, record, isMobile }: Props) => {
   return (
     <div className="w-full h-full gap-8 flex flex-col justify-center items-center bg-white">
       <SECCountdown game={game} />
       <TeamProvider defaultTeams={alpha}>
-        <SortBar alpha={alpha} rank={rank} record={record} />
+        <SortBar
+          alpha={alpha}
+          rank={rank}
+          record={record}
+          isMobile={isMobile}
+        />
         <TeamList />
       </TeamProvider>
     </div>

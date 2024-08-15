@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import SearchBar from "./SearchBar";
@@ -11,9 +12,10 @@ import { Team } from "@/app/lib/definitions";
 
 interface Props {
   teams: Team[];
+  isMobile: boolean;
 }
 
-const Search = ({ teams }: Props) => {
+const Search = ({ teams, isMobile }: Props) => {
   const searchRef = useRef<HTMLDivElement>(null);
   const { input, setInput } = useSearch();
   const pathname = usePathname();
@@ -44,7 +46,13 @@ const Search = ({ teams }: Props) => {
               <Link
                 key={team.id}
                 href={`/teams/${getDecodedName(team.name)}`}
-                className="px-2 py-1 gap-2 my-2 flex justify-start items-center bg-white hover:bg-neutral-50 text-black hover:text-blue-500 focus:bg-neutral-50 focus:text-blue-500 rounded-md"
+                className={clsx(
+                  "px-2 py-1 gap-2 my-2 flex justify-start items-center bg-white text-black rounded-md",
+                  {
+                    "hover:bg-neutral-50 hover:text-blue-500 focus:bg-neutral-50 focus:text-blue-500":
+                      !isMobile,
+                  }
+                )}
                 onClick={() => {
                   if (pathname === `/teams/${getDecodedName(team.name)}`) {
                     setInput("");

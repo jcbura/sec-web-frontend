@@ -1,10 +1,15 @@
 "use client";
 
+import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { SunIcon } from "@heroicons/react/24/outline";
 import { MoonIcon } from "@heroicons/react/24/outline";
 
-const ModeToggle = () => {
+interface Props {
+  isMobile: boolean;
+}
+
+const ModeToggle = ({ isMobile }: Props) => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -39,9 +44,17 @@ const ModeToggle = () => {
       className="flex justify-center items-center"
     >
       {darkMode ? (
-        <SunIcon className="h-6 w-6 text-black/50 dark:text-white/50 hover:fill-blue-500 dark:hover:text-blue-500" />
+        <SunIcon
+          className={clsx("h-6 w-6 text-black/50 dark:text-white/50", {
+            "dark:hover:fill-blue-500 dark:hover:text-blue-500": !isMobile,
+          })}
+        />
       ) : (
-        <MoonIcon className="h-6 w-6 text-black/50 dark:text-white/50 hover:fill-blue-500 hover:text-blue-500" />
+        <MoonIcon
+          className={clsx("h-6 w-6 text-black/50 dark:text-white/50", {
+            " hover:fill-blue-500 hover:text-blue-500": !isMobile,
+          })}
+        />
       )}
     </button>
   );

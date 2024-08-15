@@ -3,8 +3,9 @@ import Schedule from "@/app/ui/schedule/Schedule";
 import { fetchNextGame, fetchTeam, searchTeam } from "@/app/lib/data";
 import { NextGame, Team, TeamEnum } from "@/app/lib/definitions";
 import BottomBar from "@/app/ui/BottomBar";
+import { headers } from "next/headers";
+import { isMobile } from "@/app/lib/scripts";
 
-// SWITCH BACK TO NAVBAR, NOT NAVBAR2
 const Page = async ({
   params,
   searchParams,
@@ -14,6 +15,9 @@ const Page = async ({
     search?: string;
   };
 }) => {
+  const userAgent = headers().get("user-agent") || "";
+  const mobileCheck = isMobile(userAgent);
+
   const team: Team = await fetchTeam(params.team);
   const game: NextGame = await fetchNextGame(params.team);
 
@@ -21,7 +25,7 @@ const Page = async ({
 
   return (
     <div className="w-full h-full flex flex-col gap-8 bg-white">
-      <NavBar team={team} teams={teams} />
+      <NavBar team={team} teams={teams} isMobile={mobileCheck} />
       <Schedule game={game} team={team} />
       <BottomBar team={team} />
     </div>

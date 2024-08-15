@@ -8,9 +8,10 @@ interface Props {
   alpha: NextGame[];
   rank: NextGame[];
   record: NextGame[];
+  isMobile: boolean;
 }
 
-const SortBar = ({ alpha, rank, record }: Props) => {
+const SortBar = ({ alpha, rank, record, isMobile }: Props) => {
   const { teams, setTeams } = useTeam();
 
   return (
@@ -20,6 +21,7 @@ const SortBar = ({ alpha, rank, record }: Props) => {
           className={clsx("hidden lg:flex text-2xl font-bold", {
             "text-blue-500":
               teams === alpha || (teams !== rank && teams !== record),
+            "hover:text-blue-500": !isMobile,
           })}
           onClick={() => setTeams(alpha)}
         >
@@ -29,6 +31,7 @@ const SortBar = ({ alpha, rank, record }: Props) => {
           className={clsx("lg:hidden flex text-2xl font-bold", {
             "text-blue-500":
               teams === alpha || (teams !== rank && teams !== record),
+            "hover:text-blue-500": !isMobile,
           })}
           onClick={() => setTeams(alpha)}
         >
@@ -39,6 +42,7 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         <button
           className={clsx("flex text-2xl font-bold", {
             "text-blue-500": teams === rank,
+            "hover:text-blue-500": !isMobile,
           })}
           onClick={() => setTeams(rank)}
         >
@@ -49,6 +53,7 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         <button
           className={clsx("flex text-2xl font-bold", {
             "text-blue-500": teams === record,
+            "hover:text-blue-500": !isMobile,
           })}
           onClick={() => setTeams(record)}
         >
