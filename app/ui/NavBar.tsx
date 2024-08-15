@@ -115,7 +115,7 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
             Teams
           </Link>
         </div>
-        <div className="w-[210px] h-full hidden md:flex justify-center items-center">
+        <div className="w-[215px] h-full hidden md:flex justify-center items-center">
           <SearchWrapper teams={teams} isMobile={isMobile} />
         </div>
       </div>

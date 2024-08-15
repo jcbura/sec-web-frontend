@@ -67,7 +67,9 @@ const Search = ({ teams, isMobile }: Props) => {
                   className="w-8 h-8"
                 />
                 <div className="w-full flex flex-col justify-center items-start">
-                  <div className="text-lg font-bold">{team.name}</div>
+                  <div className="text-lg font-bold">
+                    {team.name.toUpperCase()}
+                  </div>
                   <div className="text-sm text-black/50 font-sans">
                     {team.mascot}
                   </div>
