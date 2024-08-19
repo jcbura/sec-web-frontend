@@ -187,7 +187,7 @@ const GameCard = ({ game, team }: Props) => {
               </div>
             </div>
           ) : (
-            <div className="flex-[2_2_0%] flex justify-start items-center text-4xl font-bold">
+            <div className="flex-[2_2_0%] flex justify-center items-center text-4xl font-bold">
               {time}
             </div>
           )}
