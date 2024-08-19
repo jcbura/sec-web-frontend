@@ -89,19 +89,8 @@ const TeamCard = ({ team }: Props) => {
               </div>
               <div className="text-sm font-sans text-black/50">Next Game</div>
             </div>
-            <div className="flex-[2_2_0%] h-full gap-8 flex justify-center  items-center">
-              <div className="flex flex-col justify-start items-center">
-                <div className="text-4xl text-green-500 font-bold">
-                  {team.total_wins}
-                </div>
-                <div className="text-sm font-sans text-black/50">Wins</div>
-              </div>
-              <div className="flex flex-col justify-start items-center">
-                <div className="text-4xl text-red-500 font-bold">
-                  {team.total_losses}
-                </div>
-                <div className="text-sm font-sans text-black/50">Losses</div>
-              </div>
+            <div className="flex-[2_2_0%] flex justify-center items-center text-4xl font-bold">
+              {`${team.total_wins} - ${team.total_losses}`}
             </div>
           </div>
         </div>

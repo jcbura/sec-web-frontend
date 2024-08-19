@@ -182,12 +182,7 @@ const GameCard = ({ game, team }: Props) => {
                 <div>-</div>
                 <div className={clsx("", clsxHomeObj)}>{game.home_score}</div>
               </div>
-              <div
-                className={clsx("flex-1 flex justify-center items-center", {
-                  "text-green-500": gameResult === "W",
-                  "text-red-500": gameResult === "L",
-                })}
-              >
+              <div className="flex-1 flex justify-center items-center">
                 {gameResult}
               </div>
             </div>
