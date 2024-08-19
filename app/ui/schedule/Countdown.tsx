@@ -3,7 +3,7 @@
 import Image from "next/image";
 import {
   getDecodedName,
-  getTimeUntill,
+  getTimeUntil,
   formatDate,
   formatTime,
 } from "@/app/lib/scripts";
@@ -27,17 +27,14 @@ const Countdown = ({ game, team }: Props) => {
   const teamIcon = getDecodedName(team.name);
   const opponentIcon = getDecodedName(opponent || "");
 
-  const [isMounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(
-    getTimeUntill(nextGame?.game_date || "", nextGame?.game_time || "00:00:00")
+    getTimeUntil(nextGame?.game_date || "", nextGame?.game_time || "00:00:00")
   );
 
   useEffect(() => {
-    setMounted(true);
-
     const interval = setInterval(() => {
       setTimeLeft(
-        getTimeUntill(
+        getTimeUntil(
           nextGame?.game_date || "",
           nextGame?.game_time || "00:00:00"
         )

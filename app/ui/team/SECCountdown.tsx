@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Game } from "@/app/lib/definitions";
-import { formatDate, formatTime, getTimeUntill } from "@/app/lib/scripts";
+import { formatDate, formatTime, getTimeUntil } from "@/app/lib/scripts";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -13,17 +13,14 @@ const SECCountdown = ({ game }: Props) => {
   const [date] = formatDate(game.game_date || "", "short");
   const time = formatTime(game.game_time || "");
 
-  const [isMounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(
-    getTimeUntill(game.game_date || "", game.game_time || "00:00:00")
+    getTimeUntil(game.game_date || "", game.game_time || "00:00:00")
   );
 
   useEffect(() => {
-    setMounted(true);
-
     const interval = setInterval(() => {
       setTimeLeft(
-        getTimeUntill(game.game_date || "", game.game_time || "00:00:00")
+        getTimeUntil(game.game_date || "", game.game_time || "00:00:00")
       );
     }, 1000);
 

@@ -2,7 +2,7 @@ export const getDecodedName = (team: string) => {
   return team.replace(/\s+/g, "_").toLowerCase();
 };
 
-export const getTimeUntill = (date: string, time: string) => {
+export const getTimeUntil = (date: string, time: string) => {
   const currentDate = new Date();
   const targetDateTime = new Date(`${date}T${time}`);
 
