@@ -15,6 +15,8 @@ const TeamCard = ({ team }: Props) => {
   const teamName = getDecodedName(team.name);
   const game = team.next_game;
 
+  const homeGame = team.name === game?.home_team;
+
   const [date, day] = formatDate(game?.game_date || "", "short");
   const time = formatTime(game?.game_time || "");
 
@@ -87,7 +89,9 @@ const TeamCard = ({ team }: Props) => {
               <div className="text-2xl font-bold">
                 {`${day} ${date} ${time}`.toUpperCase()}
               </div>
-              <div className="text-sm font-sans text-black/50">Next Game</div>
+              <div className="text-sm font-sans text-black/50">
+                {homeGame ? game.away_team : game?.home_team}
+              </div>
             </div>
             <div className="flex-[2_2_0%] flex justify-center items-center text-4xl font-bold">
               {`${team.total_wins} - ${team.total_losses}`}
