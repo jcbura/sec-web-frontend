@@ -87,10 +87,12 @@ const TeamCard = ({ team }: Props) => {
             </div>
             <div className="flex-[2_2_0%] flex flex-col justify-center items-center lg:items-start">
               <div className="text-2xl font-bold">
-                {`${day} ${date} ${time}`.toUpperCase()}
+                {homeGame
+                  ? game.away_team.toUpperCase()
+                  : game?.home_team.toUpperCase()}
               </div>
               <div className="text-sm font-sans text-black/50">
-                {homeGame ? game.away_team : game?.home_team}
+                {`${day} ${date} ${time}`}
               </div>
             </div>
             <div className="flex-[2_2_0%] flex justify-center items-center text-4xl font-bold">
