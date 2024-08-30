@@ -53,17 +53,24 @@ const Countdown = ({ game, team }: Props) => {
       <div className="w-3/4 h-full flex justify-center items-center">
         <div className="w-full h-full flex flex-col justify-center items-center">
           <Image
-            src={`/teams/${teamIcon}.png`}
+            src={`/teams/${homeGame ? opponentIcon : teamIcon}.png`}
             width={200}
             height={200}
-            alt={`${teamIcon} icon`}
+            alt={`${homeGame ? opponentIcon : teamIcon} icon`}
             className="w-20 h-20"
           />
           <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
-            {team.team_rank && (
-              <div className="text-lg font-bold">{`No. ${team.team_rank}`}</div>
+            {homeGame && opponentRank ? (
+              <div className="text-lg font-bold">{`No. ${opponentRank}`}</div>
+            ) : (
+              !homeGame &&
+              team.team_rank && (
+                <div className="text-lg font-bold">{`No. ${team.team_rank}`}</div>
+              )
             )}
-            <div className="text-2xl font-bold">{team.name.toUpperCase()}</div>
+            <div className="text-2xl font-bold">
+              {homeGame ? opponent?.toUpperCase() : team.name.toUpperCase()}
+            </div>
           </div>
         </div>
         <div className="w-full h-full flex justify-center items-center text-xl font-bold">
@@ -71,17 +78,24 @@ const Countdown = ({ game, team }: Props) => {
         </div>
         <div className="w-full h-full flex flex-col justify-center items-center">
           <Image
-            src={`/teams/${opponentIcon}.png`}
+            src={`/teams/${homeGame ? teamIcon : opponentIcon}.png`}
             width={200}
             height={200}
-            alt={`${opponentIcon} icon`}
+            alt={`${homeGame ? teamIcon : opponentIcon} icon`}
             className="w-20 h-20"
           />
           <div className="hidden lg:flex lg:justify-center lg:items-center lg:gap-2">
-            {opponentRank && (
-              <div className="text-lg font-bold">{`No. ${opponentRank}`}</div>
+            {homeGame && team.team_rank ? (
+              <div className="text-lg font-bold">{`No. ${team.team_rank}`}</div>
+            ) : (
+              !homeGame &&
+              opponentRank && (
+                <div className="text-lg font-bold">{`No. ${opponentRank}`}</div>
+              )
             )}
-            <div className="text-2xl font-bold">{opponent?.toUpperCase()}</div>
+            <div className="text-2xl font-bold">
+              {homeGame ? team.name.toUpperCase() : opponent?.toUpperCase()}
+            </div>
           </div>
         </div>
       </div>
