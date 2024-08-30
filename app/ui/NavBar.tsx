@@ -65,8 +65,8 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
           <>
             <div className="flex-1 h-full flex justify-start items-center text-4xl text-white font-bold">
               {!team
-                ? "Southeastern Conference"
-                : `${team.name} ${team.mascot}`}
+                ? "SOUTHEASTERN CONFERENCE"
+                : `${team.name.toUpperCase()} ${team.mascot.toUpperCase()}`}
             </div>
             <Image
               src={
@@ -85,8 +85,8 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
           <>
             <div className="flex-1 h-full flex justify-start items-center text-2xl text-white font-bold">
               {!team
-                ? "Southeastern Conference"
-                : `${team.name} ${team.mascot}`}
+                ? "SOUTHEASTERN CONFERENCE"
+                : `${team.name.toUpperCase()} ${team.mascot.toUpperCase()}`}
             </div>
             <Image
               src={
@@ -112,7 +112,7 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
             })}
             scroll={!team ? false : true}
           >
-            Teams
+            TEAMS
           </Link>
         </div>
         <div className="w-[215px] h-full hidden md:flex justify-center items-center">

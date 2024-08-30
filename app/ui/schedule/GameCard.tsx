@@ -176,11 +176,16 @@ const GameCard = ({ game, team }: Props) => {
             </div>
           </div>
           {game.game_played ? (
-            <div className="flex-[2_2_0%] gap-4 lg:gap-0 flex justify-center lg:justify-start items-center text-4xl font-bold">
-              <div className="flex-1 flex justify-center items-center">
+            <div className="flex-[2_2_0%] gap-2 flex justify-center items-center text-4xl font-bold">
+              <div
+                className={clsx("flex justify-center items-center", {
+                  "text-green-500": gameResult === "W",
+                  "text-red-500": gameResult === "L",
+                })}
+              >
                 {gameResult}
               </div>
-              <div className="flex-1 gap-2 flex justify-center items-center">
+              <div className="gap-2 flex justify-center items-center">
                 <div className={clsx("", clsxAwayObj)}>
                   {homeGame ? opponentScore : teamScore}
                 </div>
