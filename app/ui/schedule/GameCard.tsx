@@ -20,12 +20,12 @@ const GameCard = ({ game, team }: Props) => {
 
   const teamScore = homeGame ? game.home_score : game.away_score;
   const opponentScore = homeGame ? game.away_score : game.home_score;
-  let gameResult: "W" | "L" | undefined = undefined;
-  if (teamScore && opponentScore && teamScore > opponentScore) {
-    gameResult = "W";
-  } else {
-    gameResult = "L";
-  }
+  const gameResult: "W" | "L" | null =
+    teamScore != null && opponentScore != null
+      ? teamScore > opponentScore
+        ? "W"
+        : "L"
+      : null;
 
   const teamIcon = getDecodedName(team.name);
   const opponentIcon = getDecodedName(opponent);
@@ -49,58 +49,77 @@ const GameCard = ({ game, team }: Props) => {
     "bg-vanderbilt": team.name === "Vanderbilt",
   };
 
-  const clsxAwayObj = {
-    "text-alabama": game.away_score === teamScore && team.name === "Alabama",
-    "text-arkansas": game.away_score === teamScore && team.name === "Arkansas",
-    "text-auburn-primary":
-      game.away_score === teamScore && team.name === "Auburn",
-    "text-florida-primary":
-      game.away_score === teamScore && team.name === "Florida",
-    "text-georgia": game.away_score === teamScore && team.name === "Georgia",
-    "text-kentucky": game.away_score === teamScore && team.name === "Kentucky",
-    "text-lsu-primary": game.away_score === teamScore && team.name === "LSU",
-    "text-mississippi-state":
-      game.away_score === teamScore && team.name === "Mississippi State",
-    "text-missouri": game.away_score === teamScore && team.name === "Missouri",
-    "text-oklahoma": game.away_score === teamScore && team.name === "Oklahoma",
-    "text-ole-miss-primary":
-      game.away_score === teamScore && team.name === "Ole Miss",
-    "text-south-carolina":
-      game.away_score === teamScore && team.name === "South Carolina",
-    "text-tennessee-primary":
-      game.away_score === teamScore && team.name === "Tennessee",
-    "text-texas": game.away_score === teamScore && team.name === "Texas",
-    "text-texas-a&m":
-      game.away_score === teamScore && team.name === "Texas A&M",
-    "text-vanderbilt":
-      game.away_score === teamScore && team.name === "Vanderbilt",
-  };
+  // const clsxAwayObj = {
+  //   "text-alabama": game.away_score === teamScore && team.name === "Alabama",
+  //   "text-arkansas": game.away_score === teamScore && team.name === "Arkansas",
+  //   "text-auburn-primary":
+  //     game.away_score === teamScore && team.name === "Auburn",
+  //   "text-florida-primary":
+  //     game.away_score === teamScore && team.name === "Florida",
+  //   "text-georgia": game.away_score === teamScore && team.name === "Georgia",
+  //   "text-kentucky": game.away_score === teamScore && team.name === "Kentucky",
+  //   "text-lsu-primary": game.away_score === teamScore && team.name === "LSU",
+  //   "text-mississippi-state":
+  //     game.away_score === teamScore && team.name === "Mississippi State",
+  //   "text-missouri": game.away_score === teamScore && team.name === "Missouri",
+  //   "text-oklahoma": game.away_score === teamScore && team.name === "Oklahoma",
+  //   "text-ole-miss-primary":
+  //     game.away_score === teamScore && team.name === "Ole Miss",
+  //   "text-south-carolina":
+  //     game.away_score === teamScore && team.name === "South Carolina",
+  //   "text-tennessee-primary":
+  //     game.away_score === teamScore && team.name === "Tennessee",
+  //   "text-texas": game.away_score === teamScore && team.name === "Texas",
+  //   "text-texas-a&m":
+  //     game.away_score === teamScore && team.name === "Texas A&M",
+  //   "text-vanderbilt":
+  //     game.away_score === teamScore && team.name === "Vanderbilt",
+  // };
 
-  const clsxHomeObj = {
-    "text-alabama": game.home_score === teamScore && team.name === "Alabama",
-    "text-arkansas": game.home_score === teamScore && team.name === "Arkansas",
-    "text-auburn-primary":
-      game.home_score === teamScore && team.name === "Auburn",
-    "text-florida-primary":
-      game.home_score === teamScore && team.name === "Florida",
-    "text-georgia": game.home_score === teamScore && team.name === "Georgia",
-    "text-kentucky": game.home_score === teamScore && team.name === "Kentucky",
-    "text-lsu-primary": game.home_score === teamScore && team.name === "LSU",
-    "text-mississippi-state":
-      game.home_score === teamScore && team.name === "Mississippi State",
-    "text-missouri": game.home_score === teamScore && team.name === "Missouri",
-    "text-oklahoma": game.home_score === teamScore && team.name === "Oklahoma",
-    "text-ole-miss-primary":
-      game.home_score === teamScore && team.name === "Ole Miss",
-    "text-south-carolina":
-      game.home_score === teamScore && team.name === "South Carolina",
-    "text-tennessee-primary":
-      game.home_score === teamScore && team.name === "Tennessee",
-    "text-texas": game.home_score === teamScore && team.name === "Texas",
-    "text-texas-a&m":
-      game.home_score === teamScore && team.name === "Texas A&M",
-    "text-vanderbilt":
-      game.home_score === teamScore && team.name === "Vanderbilt",
+  // const clsxHomeObj = {
+  //   "text-alabama": game.home_score === teamScore && team.name === "Alabama",
+  //   "text-arkansas": game.home_score === teamScore && team.name === "Arkansas",
+  //   "text-auburn-primary":
+  //     game.home_score === teamScore && team.name === "Auburn",
+  //   "text-florida-primary":
+  //     game.home_score === teamScore && team.name === "Florida",
+  //   "text-georgia": game.home_score === teamScore && team.name === "Georgia",
+  //   "text-kentucky": game.home_score === teamScore && team.name === "Kentucky",
+  //   "text-lsu-primary": game.home_score === teamScore && team.name === "LSU",
+  //   "text-mississippi-state":
+  //     game.home_score === teamScore && team.name === "Mississippi State",
+  //   "text-missouri": game.home_score === teamScore && team.name === "Missouri",
+  //   "text-oklahoma": game.home_score === teamScore && team.name === "Oklahoma",
+  //   "text-ole-miss-primary":
+  //     game.home_score === teamScore && team.name === "Ole Miss",
+  //   "text-south-carolina":
+  //     game.home_score === teamScore && team.name === "South Carolina",
+  //   "text-tennessee-primary":
+  //     game.home_score === teamScore && team.name === "Tennessee",
+  //   "text-texas": game.home_score === teamScore && team.name === "Texas",
+  //   "text-texas-a&m":
+  //     game.home_score === teamScore && team.name === "Texas A&M",
+  //   "text-vanderbilt":
+  //     game.home_score === teamScore && team.name === "Vanderbilt",
+  // };
+
+  const clsxTextObj = {
+    "text-alabama": team.name === "Alabama",
+    "text-arkansas": team.name === "Arkansas",
+    "text-auburn-primary": team.name === "Auburn",
+    "text-florida-primary": team.name === "Florida",
+    "text-georgia": team.name === "Georgia",
+    "text-kentucky": team.name === "Kentucky",
+    "text-lsu-primary": team.name === "LSU",
+    "text-mississippi-state": team.name === "Mississippi State",
+    "text-missouri": team.name === "Missouri",
+    "text-oklahoma": team.name === "Oklahoma",
+    "text-ole-miss-primary": team.name === "Ole Miss",
+    "text-south-carolina": team.name === "South Carolina",
+    "text-tennessee-primary": team.name === "Tennessee",
+    "text-texas": team.name === "Texas",
+    "text-texas-a&m": team.name === "Texas A&M",
+    "text-vanderbilt": team.name === "Vanderbilt",
   };
 
   return (
@@ -176,14 +195,14 @@ const GameCard = ({ game, team }: Props) => {
             </div>
           </div>
           {game.game_played ? (
-            <div className="flex-[2_2_0%] gap-2 lg:gap-0 flex justify-center lg:justify-start items-center text-4xl font-bold">
-              <div className="flex-1 gap-2 flex justify-center items-center">
-                <div className={clsx("", clsxAwayObj)}>{game.away_score}</div>
-                <div>-</div>
-                <div className={clsx("", clsxHomeObj)}>{game.home_score}</div>
-              </div>
+            <div className="flex-[2_2_0%] gap-4 lg:gap-0 flex justify-center lg:justify-start items-center text-4xl font-bold">
               <div className="flex-1 flex justify-center items-center">
                 {gameResult}
+              </div>
+              <div className="flex-1 gap-2 flex justify-center items-center">
+                <div className={clsx("", clsxTextObj)}>{teamScore}</div>
+                <div>-</div>
+                <div className={clsx("", {})}>{opponentScore}</div>
               </div>
             </div>
           ) : (
