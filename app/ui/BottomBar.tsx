@@ -30,7 +30,7 @@ const BottomBar = ({ team, isMobile }: Props) => {
   };
 
   return (
-    <div
+    <footer
       className={clsx(
         "relative w-full h-16 px-8 gap-4 flex justify-center items-center",
         clsxObj
@@ -61,7 +61,7 @@ const BottomBar = ({ team, isMobile }: Props) => {
           className="w-10 h-10"
         />
       )}
-    </div>
+    </footer>
   );
 };
 

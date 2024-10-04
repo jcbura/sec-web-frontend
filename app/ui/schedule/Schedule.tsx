@@ -10,11 +10,11 @@ interface Props {
 
 const Schedule = ({ game, team }: Props) => {
   return (
-    <div className="w-full h-full gap-8 flex flex-col justify-center items-center bg-white">
+    <main className="w-full h-full gap-8 flex flex-col justify-center items-center bg-white">
       <Countdown game={game} team={team} />
       <Record team={team} />
       <GameList team={team} />
-    </div>
+    </main>
   );
 };
 

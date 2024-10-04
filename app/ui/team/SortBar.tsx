@@ -15,7 +15,7 @@ const SortBar = ({ alpha, rank, record, isMobile }: Props) => {
   const { teams, setTeams } = useTeam();
 
   return (
-    <div className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full flex flex-row justify-center items-center border bg-white border-neutral-300 text-black">
+    <section className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full flex flex-row justify-center items-center border bg-white border-neutral-300 text-black">
       <div className="w-1/3 h-full p-4 flex justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-l-0 border-r">
         <button
           className={clsx("hidden lg:flex text-2xl font-bold", {
@@ -60,7 +60,7 @@ const SortBar = ({ alpha, rank, record, isMobile }: Props) => {
           RECORD
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

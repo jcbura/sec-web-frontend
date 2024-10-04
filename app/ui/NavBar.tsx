@@ -54,7 +54,7 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
   };
 
   return (
-    <div className="sticky top-0 w-full h-full flex flex-col justify-center items-start shadow-md">
+    <header className="sticky top-0 w-full h-full flex flex-col justify-center items-start shadow-md">
       <div
         className={clsx(
           "w-full h-20 px-8 py-4 flex justify-start items-center",
@@ -63,11 +63,11 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
       >
         {!isMobile ? (
           <>
-            <div className="flex-1 h-full flex justify-start items-center text-4xl text-white font-bold">
+            <h1 className="flex-1 h-full flex justify-start items-center text-4xl text-white font-bold">
               {!team
                 ? "SOUTHEASTERN CONFERENCE"
                 : `${team.name.toUpperCase()} ${team.mascot.toUpperCase()}`}
-            </div>
+            </h1>
             <Image
               src={
                 team
@@ -83,11 +83,11 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
           </>
         ) : (
           <>
-            <div className="flex-1 h-full flex justify-start items-center text-2xl text-white font-bold">
+            <h1 className="flex-1 h-full flex justify-start items-center text-2xl text-white font-bold">
               {!team
                 ? "SOUTHEASTERN CONFERENCE"
                 : `${team.name.toUpperCase()} ${team.mascot.toUpperCase()}`}
-            </div>
+            </h1>
             <Image
               src={
                 team
@@ -104,7 +104,7 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
         )}
       </div>
       <div className="w-full h-full px-8 p-4 gap-4 flex justify-start items-center bg-white">
-        <div className="flex-1 h-full">
+        <nav className="flex-1 h-full">
           <Link
             href={`/teams`}
             className={clsx("text-2xl font-bold text-black", {
@@ -114,12 +114,12 @@ const NavBar = ({ team, teams, isMobile }: Props) => {
           >
             TEAMS
           </Link>
-        </div>
+        </nav>
         <div className="w-[215px] h-full hidden md:flex justify-center items-center">
           <SearchWrapper teams={teams} isMobile={isMobile} />
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
