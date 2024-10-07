@@ -41,7 +41,7 @@ const Search = ({ teams, isMobile }: Props) => {
       <SearchBar />
       <div className="relative w-full flex flex-col justify-center items-start">
         {teams.length > 0 && (
-          <nav className="absolute top-full mt-2 px-2 w-full max-h-[265px] overflow-y-auto justify-center items-start bg-white text-black shadow-md rounded-md">
+          <div className="absolute top-full mt-2 px-2 w-full max-h-[265px] overflow-y-auto justify-center items-start bg-white text-black shadow-md rounded-md">
             {teams.map((team) => (
               <Link
                 key={team.id}
@@ -76,7 +76,7 @@ const Search = ({ teams, isMobile }: Props) => {
                 </div>
               </Link>
             ))}
-          </nav>
+          </div>
         )}
       </div>
     </div>

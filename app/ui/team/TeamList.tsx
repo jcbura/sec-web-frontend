@@ -7,13 +7,11 @@ const TeamList = () => {
   const { teams } = useTeam();
 
   return (
-    <section className="w-full h-full flex justify-center items-center bg-white">
-      <ol className="list-none w-full h-full gap-4 flex flex-col justify-center items-center">
-        {teams.map((team) => (
-          <TeamCard key={team.id} team={team} />
-        ))}
-      </ol>
-    </section>
+    <div className="w-full h-full gap-4 flex flex-col justify-center items-center bg-white">
+      {teams.map((team) => (
+        <TeamCard key={team.id} team={team} />
+      ))}
+    </div>
   );
 };
 

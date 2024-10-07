@@ -1,9 +1,3 @@
-# SEChedules Fontend
-
-Repo for the frontend of my SEC football web app. The app includes a countdown to the SEC Championship games, a list of all 16 SEC teams, and options to sort teams alphabetically, by rank, and by record. It also includes a countdown to each teams next game, their record, and their schedule. The frontend uses Next.js and Tailwind CSS.
-
-## Link to [SEChedules](https://www.sechedules.com/)
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

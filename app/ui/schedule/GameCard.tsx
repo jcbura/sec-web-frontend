@@ -104,14 +104,14 @@ const GameCard = ({ game, team }: Props) => {
   };
 
   return (
-    <li className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full flex flex-col justify-center items-center bg-white text-black">
+    <div className="w-[95%] md:w-[700px] lg:w-[950px] xl:w-[70%] h-full flex flex-col justify-center items-center bg-white text-black">
       <div
         className={clsx(
           "h-12 w-full flex lg:hidden justify-center items-center text-lg font-bold text-white border border-t border-b-0 border-l border-r border-transparent",
           clsxBgObject
         )}
       >
-        <h2>{`${day.toUpperCase()} ${date.toUpperCase()}`}</h2>
+        <div>{`${day.toUpperCase()} ${date.toUpperCase()}`}</div>
       </div>
       <div className="w-full h-full lg:h-24 flex justify-center items-center">
         <div
@@ -120,11 +120,11 @@ const GameCard = ({ game, team }: Props) => {
             clsxBgObject
           )}
         >
-          <h2>{day.toUpperCase()}</h2>
-          <h2>{date.toUpperCase()}</h2>
+          <div>{day.toUpperCase()}</div>
+          <div>{date.toUpperCase()}</div>
         </div>
         <div className="w-full h-full p-4 gap-4 flex flex-col lg:flex-row justify-center lg:justiy-start items-center border border-neutral-300 border-t-0 lg:border-t border-b-0 border-l lg:border-l-0 border-r">
-          <nav className="gap-4 flex-[3_3_0%] flex flex-col lg:flex-row justify-center lg:justify-start items-center">
+          <div className="gap-4 flex-[3_3_0%] flex flex-col lg:flex-row justify-center lg:justify-start items-center">
             <Link
               href={
                 game.conference_game ? `/teams/${getDecodedName(opponent)}` : ""
@@ -166,41 +166,43 @@ const GameCard = ({ game, team }: Props) => {
                 {opponentMascot}
               </div>
             </Link>
-          </nav>
+          </div>
           <div className="flex-[2_2_0%] flex flex-col justify-center items-center lg:items-start">
-            <h2 className="text-2xl font-bold">
+            <div className="text-2xl font-bold">
               {game.neutral_site ? "NEUTRAL" : homeGame ? "HOME" : "AWAY"}
-            </h2>
-            <p className="text-sm font-sans text-black/50">{game.stadium}</p>
+            </div>
+            <div className="text-sm font-sans text-black/50">
+              {game.stadium}
+            </div>
           </div>
           {game.game_played ? (
             <div className="flex-[2_2_0%] gap-2 flex justify-center items-center text-4xl font-bold">
-              <h2
+              <div
                 className={clsx("flex justify-center items-center", {
                   "text-green-500": gameResult === "W",
                   "text-red-500": gameResult === "L",
                 })}
               >
                 {gameResult}
-              </h2>
+              </div>
               <div className="gap-2 flex justify-center items-center">
-                <h2 className={clsx("", clsxAwayObj)}>
+                <div className={clsx("", clsxAwayObj)}>
                   {homeGame ? opponentScore : teamScore}
-                </h2>
-                <h2>-</h2>
-                <h2 className={clsx("", clsxHomeObj)}>
+                </div>
+                <div>-</div>
+                <div className={clsx("", clsxHomeObj)}>
                   {homeGame ? teamScore : opponentScore}
-                </h2>
+                </div>
               </div>
             </div>
           ) : (
-            <h2 className="flex-[2_2_0%] flex justify-center items-center text-4xl font-bold">
+            <div className="flex-[2_2_0%] flex justify-center items-center text-4xl font-bold">
               {time}
-            </h2>
+            </div>
           )}
         </div>
       </div>
-      <nav className="h-12 w-full px-7 py-2.5 flex justify-center lg:justify-end items-center bg-neutral-300 border border-neutral-300 border-t border-b border-l border-r">
+      <div className="h-12 w-full px-7 py-2.5 flex justify-center lg:justify-end items-center bg-neutral-300 border border-neutral-300 border-t border-b border-l border-r">
         <Link href="/teams">
           <Image
             src={`/sec/base/${teamIcon}.png`}
@@ -212,8 +214,8 @@ const GameCard = ({ game, team }: Props) => {
             })}
           />
         </Link>
-      </nav>
-    </li>
+      </div>
+    </div>
   );
 };
 
